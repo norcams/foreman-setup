@@ -2,5 +2,5 @@
 - name: Foreman setup tasks
   hosts: "admin"
   roles:
-#    - foreman
-  - ansible-foreman
+    - foreman
+
