@@ -1,0 +1,29 @@
+---
+# Note: this can override everything in all.yaml, to override admin.yaml you
+# will need to update the node file in host_vars/
+
+# vagrant config
+ansible_ssh_user: vagrant
+ansible_ssh_private_key_file: ~/.vagrant.d/insecure_private_key
+ansible_host_key_checking: false
+
+# Location vars (same ass hieradata/<loc>/common.yaml
+location: 'vagrant'
+domain_mgmt: 'mgmt.vagrant.iaas.intern'
+
+# Named interface for mgmt on admin
+mgmt_interface: 'eth1'
+
+# use test repo
+repo_env: 'test'
+
+# default gw for mgmt is the vagrant host
+foreman_subnet_gateway: "{{  mgmt_network_cidr | ansible.utils.ipaddr('1') | ansible.utils.ipaddr('address') }}"
+
+# Global override parameter override
+foreman_override_global_parameter:
+  - name: 'ntp-server'
+    value: 'ntp.uib.no'
+
+foreman_compute_resources:
+  - name: "vagrant-controller-01.{{ domain_mgmt }}"

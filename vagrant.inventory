@@ -1,0 +1,6 @@
+[vagrant:children]
+admin
+
+[admin]
+vagrant-admin-01 ansible_host=172.31.0.11
+

@@ -1,0 +1,36 @@
+---
+#
+# Common foreman config. Override in group_vars/<location>.yaml when needed)
+#
+
+# default mgmt gw is proxy-02
+foreman_subnet_gateway: "{{  mgmt_network_cidr | ansible.utils.ipaddr('97') | ansible.utils.ipaddr('address') }}"
+
+# default repo env
+repo_env: 'prod'
+
+# latest os versions
+el7_latest: "CentOS 7.9"
+el8_latest: "AlmaLinux 8.9"
+
+# default compute resource
+foreman_compute_resources:
+  - name: "{{ location }}-controller-01.{{ domain_mgmt }}"
+
+
+# Dynamic vars
+mgmt_network_cidr: "{{ansible_facts[mgmt_interface]['ipv4']['network']}}/{{ansible_facts[mgmt_interface]['ipv4']['prefix']}}"
+
+
+# NREC vars
+foreman_repo_server: "https://download.iaas.uio.no/nrec/{{ repo_env }}"
+foreman_template_prefix: 'norcams-'
+
+# Foreman global settings
+foreman_server_url: "https://foreman.{{ domain_mgmt }}"
+foreman_username: 'admin'
+foreman_password: 'changeme'
+foreman_validate_certs: no
+
+# Autoload all templates in role (both provisioning and snippets)
+foreman_autoload_templates: true

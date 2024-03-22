@@ -1,0 +1,18 @@
+---
+roles:
+  - name: common
+    src: https://github.com/raykrist/ansible-common
+    version: master
+  - name: foreman
+    src: https://github.com/norcams/ansible-foreman
+    version: master
+
+collections:
+  - name: ansible.posix
+    version: 1.5.4
+  - name: ansible.utils
+    version: 2.11.0
+  - name: community.general
+    version: 8.0.2
+  - name: theforeman.foreman
+    version: 4.0.0
