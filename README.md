@@ -19,7 +19,7 @@ grep -r tags tasks/* | awk '{ print $3 }'
 ## Run with sudo
 
 If you need to run the ansible playbook with sudo you will have to use the full path
-since sudo do not use the python virtual env. You can also create an alias and run
+since sudo does not use the python virtual env. You can also create an alias and run
 `ansible-playbook` without implicit sudo:
 
 ``` bash
