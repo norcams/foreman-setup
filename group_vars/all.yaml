@@ -3,6 +3,9 @@
 # Common foreman config. Override in group_vars/<location>.yaml when needed)
 #
 
+# ansible defaults
+ansible_ssh_user: iaas
+
 # default mgmt gw is proxy-02
 foreman_subnet_gateway: "{{  mgmt_network_cidr | ansible.utils.ipaddr('97') | ansible.utils.ipaddr('address') }}"
 
