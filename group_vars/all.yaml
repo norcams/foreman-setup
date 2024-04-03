@@ -13,7 +13,7 @@ foreman_subnet_gateway: "{{  mgmt_network_cidr | ansible.utils.ipaddr('97') | an
 repo_env: 'prod'
 
 # latest os versions
-el7_latest: "CentOS 7.9"
+el7_latest: "CentOS 7.9.2009"
 el8_latest: "AlmaLinux 8.9"
 
 # default compute resource
