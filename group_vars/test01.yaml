@@ -1,0 +1,31 @@
+---
+# Location vars (same ass hieradata/<loc>/common.yaml
+location: 'test01'
+domain_mgmt: 'mgmt.test01.uhdc.no'
+
+# Named interface for mgmt on admin
+mgmt_interface: 'eth0'
+
+# default gw for mgmt is the vagrant host
+foreman_subnet_gateway: "{{  mgmt_network_cidr | ansible.utils.ipaddr('10') | ansible.utils.ipaddr('address') }}"
+
+# Global override parameter override
+foreman_override_global_parameter:
+  - name: 'repo_env'
+    value: 'test'
+  - name: 'enable-official-puppet7-repo'
+    value: true
+
+# use old ui
+foreman_settings:
+  - name: 'host_details_ui'
+    value: false
+  - name: 'puppet_interval'
+    value: 65
+  - name: 'outofsync_interval'
+    value: 65
+
+foreman_compute_resources:
+  - name: "{{ location }}-controller-01.{{ domain_mgmt }}"
+  - name: "{{ location }}-controller-02.{{ domain_mgmt }}"
+  - name: "{{ location }}-controller-03.{{ domain_mgmt }}"
