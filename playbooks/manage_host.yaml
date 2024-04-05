@@ -1,5 +1,5 @@
 ---
-# This play will toggle build on and off for all hosts to generate tftp files
+# This play will set a host to managed by foreman
 # Usefull for reinstalling admin
 #
 # Use host_filter var to only toggle only some hosts.
@@ -22,21 +22,11 @@
       <<: *foreman_auth
     register: foreman_hosts
 
-  - name: "Toggle build on"
+  - name: "Manage host"
     theforeman.foreman.host:
       <<: *foreman_auth
       name: "{{ item.name }}"
-      build: true
-    loop: "{{ foreman_hosts['hosts'] }}"
-    loop_control:
-      label: "{{ item.name }}"
-    when: host_filter in item.name
-
-  - name: "Toggle build off"
-    theforeman.foreman.host:
-      <<: *foreman_auth
-      name: "{{ item.name }}"
-      build: false
+      managed: true
     loop: "{{ foreman_hosts['hosts'] }}"
     loop_control:
       label: "{{ item.name }}"
