@@ -34,3 +34,6 @@ foreman_validate_certs: false
 foreman_autoload_templates: true
 
 foreman_deploy_default_pxelinux_cfg: true
+
+# misc
+ca_backup_dir: '/opt/repo/secrets/dumps/'

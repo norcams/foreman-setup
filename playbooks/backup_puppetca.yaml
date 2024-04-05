@@ -1,0 +1,28 @@
+- name: Fetch all puppet certs from puppetca
+  hosts: "admin"
+#  become: true
+
+  tasks:
+
+  - name: Find files to copy
+    become: true
+    ansible.builtin.find:
+      paths: "/etc/puppetlabs/puppetserver/ca/"
+      recurse: true
+      patterns: "*"
+    register: files_to_copy
+
+  - name: "Create {{ ca_backup_dir }}"
+    ansible.builtin.file:
+      state: directory
+      recurse: true
+      path: "{{ ca_backup_dir }}"
+    delegate_to: localhost
+
+  - name: Backup files
+    become: true
+    ansible.builtin.fetch:
+      flat: true
+      src: "{{ item.path }}"
+      dest: "{{ ca_backup_dir }}{{ inventory_hostname }}/"
+    loop: "{{ files_to_copy.files }}"
