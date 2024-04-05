@@ -1,0 +1,32 @@
+---
+# Location vars (same ass hieradata/<loc>/common.yaml
+location: 'osl'
+domain_mgmt: 'mgmt.osl.uhdc.no'
+
+# Named interface for mgmt on admin
+mgmt_interface: 'eth0'
+
+# default gw for mgmt in foreman could be login or proxy, but login is safer
+foreman_subnet_gateway: "{{  mgmt_network_cidr | ansible.utils.ipaddr('10') | ansible.utils.ipaddr('address') }}"
+
+# Global override parameter override
+foreman_override_global_parameter:
+  - name: enable-puppetlabs-puppet6-repo
+    value: true
+  - name: 'enable-official-puppet7-repo'
+    value: false
+
+# use old ui
+foreman_settings:
+  - name: 'host_details_ui'
+    value: false
+  - name: 'puppet_interval'
+    value: 35
+  - name: 'outofsync_interval'
+    value: 35
+
+foreman_compute_resources:
+  - name: "{{ location }}-controller-05.{{ domain_mgmt }}"
+  - name: "{{ location }}-controller-06.{{ domain_mgmt }}"
+  - name: "{{ location }}-controller-07.{{ domain_mgmt }}"
+  - name: "{{ location }}-controller-08.{{ domain_mgmt }}"
