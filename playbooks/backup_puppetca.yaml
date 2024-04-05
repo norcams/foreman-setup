@@ -1,13 +1,15 @@
 - name: Fetch all puppet certs from puppetca
   hosts: "admin"
-#  become: true
+  vars:
+    ca_path: "/etc/puppetlabs/puppet/ssl/ca/" #puppet6
+    #ca_path: "/etc/puppetlabs/puppetserver/ca/" #puppet7
 
   tasks:
 
   - name: Find files to copy
     become: true
     ansible.builtin.find:
-      paths: "/etc/puppetlabs/puppetserver/ca/"
+      paths: "{{ ca_path }}"
       recurse: true
       patterns: "*"
     register: files_to_copy
