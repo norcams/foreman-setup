@@ -24,11 +24,6 @@ foreman_compute_resources:
 # Dynamic vars
 mgmt_network_cidr: "{{ ansible_facts[mgmt_interface]['ipv4']['network']}}/{{ansible_facts[mgmt_interface]['ipv4']['prefix'] }}"
 
-
-# NREC vars
-foreman_repo_server: "https://download.iaas.uio.no/nrec/{{ repo_env }}"
-foreman_template_prefix: 'norcams-'
-
 # Foreman global settings
 foreman_server_url: "https://foreman.{{ domain_mgmt }}"
 foreman_username: 'admin'
