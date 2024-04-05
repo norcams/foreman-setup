@@ -14,6 +14,9 @@
       patterns: "*"
     register: files_to_copy
 
+  # - debug: msg="{{ ca_backup_dir }}{{ inventory_hostname }}/{{ item.path | dirname | replace(ca_path, '') }}"
+  #   loop: "{{ files_to_copy.files }}"
+
   - name: "Create {{ ca_backup_dir }}"
     ansible.builtin.file:
       state: directory
@@ -26,5 +29,5 @@
     ansible.builtin.fetch:
       flat: true
       src: "{{ item.path }}"
-      dest: "{{ ca_backup_dir }}{{ inventory_hostname }}/"
+      dest: "{{ ca_backup_dir }}{{ inventory_hostname }}/{{ item.path | replace(ca_path, '') | dirname }}"
     loop: "{{ files_to_copy.files }}"
