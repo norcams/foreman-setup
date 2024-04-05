@@ -32,3 +32,4 @@
     loop_control:
       label: "{{ inventory_dir }}/dumps/{{ item.name.split('.')[0] }}.yaml"
     delegate_to: localhost
+    when: host_filter in item.name
