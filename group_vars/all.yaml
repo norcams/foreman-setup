@@ -37,3 +37,5 @@ foreman_validate_certs: false
 
 # Autoload all templates in role (both provisioning and snippets)
 foreman_autoload_templates: true
+
+foreman_deploy_default_pxelinux_cfg: true
