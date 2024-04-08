@@ -29,5 +29,5 @@
     ansible.builtin.fetch:
       flat: true
       src: "{{ item.path }}"
-      dest: "{{ ca_backup_dir }}{{ inventory_hostname }}/{{ item.path | replace(ca_path, '') | dirname }}"
+      dest: "{{ ca_backup_dir }}{{ inventory_hostname }}/{{ item.path | replace(ca_path, '') | dirname }}/"
     loop: "{{ files_to_copy.files }}"
