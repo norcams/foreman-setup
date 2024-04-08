@@ -1,0 +1,30 @@
+- name: Copy all puppet certs to puppetca
+  hosts: "admin"
+  vars:
+    #ca_path: "/etc/puppetlabs/puppet/ssl/ca/" #puppet6
+    ca_path: "/etc/puppetlabs/puppetserver/ca/" #puppet7
+
+  tasks:
+
+  - name: Find files to copy
+    ansible.builtin.find:
+      paths: "{{ ca_backup_dir }}{{ inventory_hostname }}"
+      recurse: true
+      patterns: "*"
+    register: files_to_copy
+    delegate_to: localhost
+
+  # - debug: msg="{{ ca_path }}{{ item.path | dirname | replace(ca_backup_dir+inventory_hostname, '') | regex_replace('^\\/', '') }}"
+  #   loop: "{{ files_to_copy.files }}"
+
+  - name: restore files
+    become: true
+    ansible.builtin.copy:
+      owner: 'puppet'
+      group: 'puppet'
+      mode: '640'
+      src: "{{ item.path }}"
+      dest: "{{ ca_path }}{{ item.path | dirname | replace(ca_backup_dir+inventory_hostname, '') | regex_replace('^\\/', '') }}/"
+    loop: "{{ files_to_copy.files }}"
+    loop_control:
+      label: "{{ item.path | basename }}"
