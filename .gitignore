@@ -1,8 +1,9 @@
-roles/
-bin/
-lib/
-lib64
-share/
+/roles/
+/bin/
+/lib/
+/lib64
+/share/
+/dumps/
 pyvenv.cfg
 inventory
 .roles/
