@@ -1,0 +1,14 @@
+---
+- name: Foreman deploy pxelinux.cfg
+  hosts: "admin"
+  become: true
+  tags: pxelinux
+  tasks:
+  - name: Deploy default pxelinux.cfg file
+    ansible.builtin.copy:
+      src: "{{ inventory_dir }}/files/pxelinux.cfg/default"
+      dest: "/var/lib/tftpboot/pxelinux.cfg/default"
+      owner: foreman-proxy
+      group: foreman-proxy
+      mode: '0644'
+    when: foreman_deploy_default_pxelinux_cfg
