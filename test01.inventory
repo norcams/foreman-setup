@@ -1,6 +1,8 @@
 [test01:children]
 admin
-
+local 
 [admin]
 test01-admin-01 ansible_connection=local
 
+[local]
+localhost ansible_connection=local
