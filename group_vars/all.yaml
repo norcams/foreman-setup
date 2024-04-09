@@ -29,7 +29,10 @@ foreman_server_url: "https://foreman.{{ domain_mgmt }}"
 foreman_username: 'admin'
 foreman_password: 'changeme'
 foreman_validate_certs: false
+
+# NREC vars
 foreman_template_prefix: 'norcams-'
+foreman_repo_server: "https://download.iaas.uio.no/nrec/{{ repo_env }}"
 
 # Autoload all templates in role (both provisioning and snippets)
 foreman_autoload_templates: true
