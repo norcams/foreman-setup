@@ -29,6 +29,7 @@ foreman_server_url: "https://foreman.{{ domain_mgmt }}"
 foreman_username: 'admin'
 foreman_password: 'changeme'
 foreman_validate_certs: false
+foreman_template_prefix: 'norcams-'
 
 # Autoload all templates in role (both provisioning and snippets)
 foreman_autoload_templates: true
