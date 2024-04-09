@@ -1,8 +1,12 @@
 [osl:children]
 admin
+local
 
 [admin]
-osl-admin-01 ansible_connection=local
+osl-admin-01
 
-[osl:vars]
+[local]
+localhost ansible_connection=local
+
+[local:vars]
 ansible_python_interpreter=/root/foreman-setup/bin/python3.11
