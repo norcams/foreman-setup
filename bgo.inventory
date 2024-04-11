@@ -1,0 +1,12 @@
+[bgo:children]
+admin
+local
+
+[admin]
+bgo-admin-01
+
+[local]
+localhost ansible_connection=local
+
+#[local:vars]
+#ansible_python_interpreter=/root/foreman-setup/bin/python3.11
