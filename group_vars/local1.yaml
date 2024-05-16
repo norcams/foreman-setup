@@ -1,0 +1,25 @@
+---
+#ansible_ssh_private_key_file: "~/.ssh/root_key.temp"
+
+# Location vars (same ass hieradata/<loc>/common.yaml
+location: 'local1'
+domain_mgmt: 'mgmt.local1.iaas.intern'
+
+# Named interface for mgmt on admin
+mgmt_interface: 'eth0'
+
+# default gw for mgmt is login in local1
+foreman_subnet_gateway: "{{  mgmt_network_cidr | ansible.utils.ipaddr('10') | ansible.utils.ipaddr('address') }}"
+
+# Global override parameter override
+foreman_override_global_parameter:
+  - name: 'repo_env'
+    value: 'test'
+  - name: 'enable-official-puppet7-repo'
+    value: true
+
+foreman_settings:
+  - name: 'puppet_out_of_sync_disabled'
+    value: true
+  - name: 'host_details_ui'
+    value: false

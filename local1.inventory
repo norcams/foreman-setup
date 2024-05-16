@@ -1,0 +1,6 @@
+[local1:children]
+admin
+
+[admin]
+local1-admin-01
+
