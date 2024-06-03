@@ -8,6 +8,14 @@ Use python 3.9+ and virtualenv to install ansible
 
 Tested on el8 with python 3.11.
 
+## Updated ansible-foreman role
+
+``` bash
+ansible-galaxy install -r requirements.yaml --force
+```
+
+To update other roles and collections with pined version edit `requirements.yaml` first.
+
 ## Run only some tasks
 
 You can run only some task by using `--tags <tag>`. To get a list of all current tags run:
