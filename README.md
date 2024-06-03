@@ -10,10 +10,10 @@ Tested on el8 with python 3.11.
 
 ## Run only some tasks
 
-You can run only some task by using `--tags <tag>`. To get a list or all current tags run:
+You can run only some task by using `--tags <tag>`. To get a list of all current tags run:
 
 ``` bash
-grep -r tags tasks/* | awk '{ print $3 }'
+grep -r tags .roles/foreman/tasks/* | awk '{ print $3 }'
 ```
 
 ## Run with sudo
