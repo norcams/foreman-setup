@@ -11,6 +11,7 @@ Tested on el8 with python 3.11.
 ## Updated ansible-foreman role
 
 ``` bash
+source bin/activate
 ansible-galaxy install -r requirements.yaml --force
 ```
 
@@ -19,6 +20,7 @@ To update other roles and collections with pined version edit `requirements.yaml
 ## Run foreman setup
 
 ``` bash
+source bin/activate
 ansible-playbook -i <path to inventory> playbooks/foreman_setup.yaml [--check]
 ```
 
