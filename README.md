@@ -19,10 +19,10 @@ To update other roles and collections with pined version edit `requirements.yaml
 ## Run foreman setup
 
 ``` bash
-ansible-playbook -i <path to inventory> playbooks/foreman_setup.yaml
+ansible-playbook -i <path to inventory> playbooks/foreman_setup.yaml [--check]
 ```
 
-We can symlink <loc>.inventory to inventory to avoid using the `-i` option.
+We can symlink `<loc>.inventory` to inventory to avoid using the `-i` option.
 
 ### Run only some tasks
 
