@@ -22,7 +22,7 @@ Update foreman role:
 
 ``` bash
 source bin/activate
-ansible-galaxy install foreman --force
+ansible-galaxy install -r foreman_role.yaml --force
 ```
 
 Update all roles and collections
@@ -32,7 +32,7 @@ source bin/activate
 ansible-galaxy install -r requirements.yaml --force
 ```
 
-To change version for other roles and collections with pined versions edit 
+To change version for other roles and collections with pined versions edit
 `requirements.yaml` first.
 
 ## Run foreman setup

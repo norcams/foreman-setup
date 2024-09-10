@@ -1,0 +1,5 @@
+---
+roles:
+  - name: foreman
+    src: https://github.com/norcams/ansible-foreman
+    version: master
