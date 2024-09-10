@@ -3,7 +3,7 @@ admin
 local
 
 [admin]
-bgo-admin-01
+bgo-admin-01 ansible_connection=local
 
 [local]
 localhost ansible_connection=local
