@@ -16,14 +16,24 @@ ansible-galaxy install -r requirements.yaml
 
 Tested on el8 with python 3.11.
 
-## Updated ansible-foreman role
+## Updated dependencies
+
+Update foreman role:
+
+``` bash
+source bin/activate
+ansible-galaxy install foreman --force
+```
+
+Update all roles and collections
 
 ``` bash
 source bin/activate
 ansible-galaxy install -r requirements.yaml --force
 ```
 
-To update other roles and collections with pined version edit `requirements.yaml` first.
+To change version for other roles and collections with pined versions edit 
+`requirements.yaml` first.
 
 ## Run foreman setup
 
