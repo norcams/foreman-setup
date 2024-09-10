@@ -4,7 +4,15 @@ NREC foreman setup with ansible. Should be part of norcams/ansible with time.
 
 ### Install
 
-Use python 3.9+ and virtualenv to install ansible
+Use python 3.9+ and virtualenv to install ansible:
+
+```bash
+python3.11 -m venv .
+source bin/activate
+pip install --upgrade pip
+pip install -r requirements.txt
+ansible-galaxy install -r requirements.yaml
+```
 
 Tested on el8 with python 3.11.
 
