@@ -1,6 +1,8 @@
 # foreman-setup
 
-NREC foreman setup with ansible. Should be part of norcams/ansible with time.
+NREC foreman setup with ansible. Should be part of norcams/ansible with time. 
+
+This repo should already be checked out on `admin-01` at `/root/foreman-setup`
 
 ### Install
 
