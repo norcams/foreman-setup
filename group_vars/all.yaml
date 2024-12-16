@@ -25,9 +25,9 @@ foreman_compute_resources:
 foreman_puppet_environments:
   - name: "production"
   - name: "admin"
-  - name: "ussuri"
   - name: "victoria"
   - name: "wallaby"
+  - name: "xena"
 
 # Dynamic vars
 mgmt_network_cidr: "{{ ansible_facts[mgmt_interface]['ipv4']['network']}}/{{ansible_facts[mgmt_interface]['ipv4']['prefix'] }}"
