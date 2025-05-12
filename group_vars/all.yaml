@@ -13,9 +13,8 @@ foreman_subnet_gateway: "{{  mgmt_network_cidr | ansible.utils.ipaddr('97') | an
 repo_env: 'prod'
 
 # latest os versions
-el7_latest: "CentOS Linux 7.9.2009"
 el8_latest: "AlmaLinux 8.10"
-el9_latest: "AlmaLinux 9.4"
+el9_latest: "AlmaLinux 9.5"
 
 # default compute resource
 foreman_compute_resources:
@@ -25,9 +24,9 @@ foreman_compute_resources:
 foreman_puppet_environments:
   - name: "production"
   - name: "admin"
-  - name: "victoria"
-  - name: "wallaby"
   - name: "xena"
+  - name: "yoga"
+  - name: "zed"
 
 # Dynamic vars
 mgmt_network_cidr: "{{ ansible_facts[mgmt_interface]['ipv4']['network']}}/{{ansible_facts[mgmt_interface]['ipv4']['prefix'] }}"
