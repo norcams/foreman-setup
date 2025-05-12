@@ -16,7 +16,7 @@ pip install -r requirements.txt
 ansible-galaxy install -r requirements.yaml
 ```
 
-Tested on el8 with python 3.11.
+Tested on el8 with python 3.11 and el9 with python 3.12
 
 ## Updated dependencies
 
