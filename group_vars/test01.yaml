@@ -29,3 +29,4 @@ foreman_compute_resources:
   - name: "{{ location }}-controller-01.{{ domain_mgmt }}"
   - name: "{{ location }}-controller-02.{{ domain_mgmt }}"
   - name: "{{ location }}-controller-03.{{ domain_mgmt }}"
+  - name: "{{ location }}-controller-04.{{ domain_mgmt }}"
