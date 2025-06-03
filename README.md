@@ -4,8 +4,20 @@ NREC foreman setup with ansible. Should be part of norcams/ansible with time.
 
 This repo should already be checked out on `admin-01` at `/root/foreman-setup`
 
-### Install
+## Simple run of playbook
 
+For most use-cases this will be enough to update foreman after any change in
+the ansible-foreman repo:
+
+``` bash
+source bin/activate
+ansible-galaxy install -r foreman_role.yaml --force
+ansible-playbook -i <path to inventory> playbooks/foreman_setup.yaml [--check]
+```
+
+## Install
+
+This is only needed when we update python or install in a new host.
 Use python 3.9+ and virtualenv to install ansible:
 
 ```bash
@@ -20,14 +32,14 @@ Tested on el8 with python 3.11 and el9 with python 3.12
 
 ## Updated dependencies
 
-Update foreman role:
+Update only foreman role:
 
 ``` bash
 source bin/activate
 ansible-galaxy install -r foreman_role.yaml --force
 ```
 
-Update all roles and collections
+or update all roles and collections
 
 ``` bash
 source bin/activate
