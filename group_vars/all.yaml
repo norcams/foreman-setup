@@ -26,6 +26,7 @@ foreman_puppet_environments:
   - name: "admin"
   - name: "xena"
   - name: "yoga"
+  - name: "yoga_el9"
   - name: "zed"
 
 # Dynamic vars
