@@ -14,7 +14,7 @@ repo_env: 'prod'
 
 # latest os versions
 el8_latest: "AlmaLinux 8.10"
-el9_latest: "AlmaLinux 9.5"
+el9_latest: "AlmaLinux 9.6"
 
 # default compute resource
 foreman_compute_resources:
