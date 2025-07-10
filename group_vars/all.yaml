@@ -24,6 +24,8 @@ foreman_compute_resources:
 foreman_puppet_environments:
   - name: "production"
   - name: "admin"
+  - name: "monitor"
+  - name: "controller"
   - name: "xena"
   - name: "yoga"
   - name: "yoga_el9"
