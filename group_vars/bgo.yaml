@@ -11,10 +11,10 @@ foreman_subnet_gateway: "{{  mgmt_network_cidr | ansible.utils.ipaddr('10') | an
 
 # Global override parameter override
 foreman_override_global_parameter:
-  - name: enable-puppetlabs-puppet6-repo
-    value: true
-  - name: 'enable-official-puppet7-repo'
+  - name: 'enable-puppetlabs-puppet6-repo'
     value: false
+  - name: 'enable-official-puppet7-repo'
+    value: true
 
 # use old ui
 foreman_settings:
