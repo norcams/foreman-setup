@@ -10,6 +10,7 @@ For most use-cases this will be enough to update foreman after any change in
 the ansible-foreman repo:
 
 ``` bash
+git pull  # only needed if foreman-setup (self) is updated
 source bin/activate
 ansible-galaxy install -r foreman_role.yaml --force
 ansible-playbook -i <path to inventory> playbooks/foreman_setup.yaml [--check]
