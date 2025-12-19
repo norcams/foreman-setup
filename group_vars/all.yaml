@@ -26,6 +26,7 @@ foreman_puppet_environments:
   - name: "admin"
   - name: "monitor"
   - name: "controller"
+  - name: "el9"
   - name: "xena"
   - name: "yoga"
   - name: "yoga_el9"
