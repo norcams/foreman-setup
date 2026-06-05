@@ -33,7 +33,7 @@ foreman_puppet_environments:
   - name: "zed"
 
 # Dynamic vars
-mgmt_network_cidr: "{{ ansible_facts[mgmt_interface]['ipv4']['network']}}/{{ansible_facts[mgmt_interface]['ipv4']['prefix'] }}"
+mgmt_network_cidr: "{{ ansible_facts[mgmt_interface]['ipv4']['network'] }}/{{ ansible_facts[mgmt_interface]['ipv4']['prefix'] }}"
 
 # Foreman global settings
 foreman_server_url: "https://foreman.{{ domain_mgmt }}"
