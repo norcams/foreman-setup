@@ -6,13 +6,6 @@ domain_mgmt: 'mgmt.bgo.uhdc.no'
 # default gw for mgmt in foreman could be login or proxy, but login is safer
 foreman_subnet_gateway: "{{  mgmt_network_cidr | ansible.utils.ipaddr('10') | ansible.utils.ipaddr('address') }}"
 
-# Global override parameter override
-foreman_override_global_parameter:
-  - name: 'enable-puppetlabs-puppet6-repo'
-    value: false
-  - name: 'enable-official-puppet7-repo'
-    value: true
-
 # use old ui
 foreman_settings:
   - name: 'host_details_ui'

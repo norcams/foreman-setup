@@ -36,6 +36,11 @@ foreman_puppet_environments:
   - name: "zed"
   - name: "zed_bind"
 
+# Global override parameter override
+foreman_global_parameter:
+  - name: 'enable-official-puppet7-repo'
+    value: true
+
 # Dynamic vars
 mgmt_network_cidr: "{{ ansible_facts[mgmt_interface]['ipv4']['network'] }}/{{ ansible_facts[mgmt_interface]['ipv4']['prefix'] }}"
 
