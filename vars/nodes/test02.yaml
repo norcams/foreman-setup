@@ -1,0 +1,14 @@
+---
+nodes:
+  test02-proxy-01:
+    hostgroup: "el9/legacy"
+    compute_profile: "small"
+    compute_resource: "{{ location }}-controller-04.{{ domain_mgmt }}"
+    enviromenent: "el9"
+    interfaces_attributes:
+      - type: "interface"
+        compute_attributes:
+          bridge: "br0" # mgmt
+      - type: "interface"
+        compute_attributes:
+          bridge: "br1" # trp
