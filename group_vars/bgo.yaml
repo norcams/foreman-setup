@@ -3,9 +3,6 @@
 location: 'bgo'
 domain_mgmt: 'mgmt.bgo.uhdc.no'
 
-# Named interface for mgmt on admin
-mgmt_interface: 'eth0'
-
 # default gw for mgmt in foreman could be login or proxy, but login is safer
 foreman_subnet_gateway: "{{  mgmt_network_cidr | ansible.utils.ipaddr('10') | ansible.utils.ipaddr('address') }}"
 

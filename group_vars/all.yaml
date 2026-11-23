@@ -6,6 +6,9 @@
 # ansible defaults
 ansible_ssh_user: iaas
 
+# Named interface for mgmt on admin
+mgmt_interface: 'eth0'
+
 # default mgmt gw is proxy-02
 foreman_subnet_gateway: "{{  mgmt_network_cidr | ansible.utils.ipaddr('97') | ansible.utils.ipaddr('address') }}"
 

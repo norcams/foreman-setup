@@ -5,9 +5,6 @@
 location: 'local1'
 domain_mgmt: 'mgmt.local1.iaas.intern'
 
-# Named interface for mgmt on admin
-mgmt_interface: 'eth0'
-
 # default gw for mgmt is login in local1
 foreman_subnet_gateway: "{{  mgmt_network_cidr | ansible.utils.ipaddr('10') | ansible.utils.ipaddr('address') }}"
 

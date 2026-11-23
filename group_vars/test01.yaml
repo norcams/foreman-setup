@@ -3,9 +3,6 @@
 location: 'test01'
 domain_mgmt: 'mgmt.test01.uhdc.no'
 
-# Named interface for mgmt on admin
-mgmt_interface: 'eth0'
-
 # default gw for mgmt is the vagrant host
 foreman_subnet_gateway: "{{  mgmt_network_cidr | ansible.utils.ipaddr('10') | ansible.utils.ipaddr('address') }}"
 
