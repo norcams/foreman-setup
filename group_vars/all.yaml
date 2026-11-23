@@ -17,7 +17,7 @@ repo_env: 'prod'
 
 # latest os versions
 el8_latest: "AlmaLinux 8.10"
-el9_latest: "AlmaLinux 9.8"
+el9_latest: "AlmaLinux 9.9"
 
 # default compute resource
 foreman_compute_resources:
@@ -27,10 +27,10 @@ foreman_compute_resources:
 foreman_puppet_environments:
   - name: "production"
   - name: "admin"
+  - name: "admin_el9"
   - name: "monitor"
   - name: "controller"
   - name: "el9"
-  - name: "xena"
   - name: "yoga"
   - name: "yoga_el9"
   - name: "zed"
