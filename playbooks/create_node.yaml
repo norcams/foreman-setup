@@ -1,0 +1,54 @@
+---
+# Create a new node in foreman. Can be used the same as himlarcli/node.py
+
+- hosts: "admin"
+  vars:
+    default_interfaces_attributes:
+      - type: "interface"
+        compute_attributes:
+          bridge: "br0"
+
+  tasks:
+  - name: Include node vars
+    ansible.builtin.include_vars:
+      file: "{{ inventory_dir }}/vars/nodes/{{ location }}.yaml"
+    tags: always
+
+  - theforeman.foreman.host:
+      build: "{{ nodes[node]['build'] | default(true) }}"
+      name: "{{ node }}.{{ domain_mgmt }}"
+      hostgroup: "{{ nodes[node]['hostgroup'] | mandatory }}"
+      compute_profile: "{{ nodes[node]['compute_profile'] | default('medium') }}"
+      compute_resource: "{{ nodes[node]['compute_resource'] | default(location~'-controller-01.'~domain_mgmt) }}"
+      environment: "{{ nodes[node]['environment'] | default('production') }}"
+      interfaces_attributes: "{{ nodes[node]['interfaces_attributes'] | default(default_interfaces_attributes) }}"
+      compute_attributes: "{{ nodes[node]['compute_attributes'] | default(omit) }}"
+      # interfaces_attributes:
+      #   - type: "interface"
+      #     compute_attributes:
+      #       bridge: "br0"
+      # compute_attributes:
+      #   volumes_attributes:
+      #     0:
+      #       allocation:   '0G'
+      #       pool_name:    'dirpool'
+      #       capacity:     '20G'
+      #       format_type:  'qcow2'
+      state: "{{ item.state | default('present') }}"
+      username: "{{ foreman_username }}"
+      password: "{{ foreman_password }}"
+      server_url: "{{ foreman_server_url }}"
+      validate_certs: "{{ foreman_validate_certs | default('true') }}"
+      location: "{{ foreman_locations | default('Default Location') }}"
+      organization: "{{ foreman_organizations | default('Default Organization') }}"
+    tags: node_create
+
+  - name: "Switch a host on"
+    theforeman.foreman.host_power:
+      name: "{{ node }}.{{ domain_mgmt }}"
+      state: 'on'
+      username: "{{ foreman_username }}"
+      password: "{{ foreman_password }}"
+      server_url: "{{ foreman_server_url }}"
+      validate_certs: "{{ foreman_validate_certs | default('true') }}"
+    tags: node_poweron

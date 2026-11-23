@@ -1,0 +1,15 @@
+---
+# To run this in vagrant you will have to turn on nested virtualization on controller-01
+nodes:
+  vagrant-proxy-01:
+    hostgroup: "el9/legacy"
+    compute_profile: "small"
+    #compute_resource: "vagrant-controller-01.{{ domain_mgmt }}"
+    enviromenent: "puppet"
+    compute_attributes:
+      volumes_attributes:
+        0:
+          allocation:   '0G'
+          pool_name:    'dirpool'
+          capacity:     '5G'
+          format_type:  'qcow2'
