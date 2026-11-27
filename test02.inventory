@@ -7,3 +7,6 @@ test02-admin-01 ansible_connection=local
 
 [local]
 localhost ansible_connection=local
+
+[admin:vars]
+ansible_python_interpreter=/usr/bin/python3.14
